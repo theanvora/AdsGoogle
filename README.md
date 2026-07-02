@@ -5,7 +5,7 @@ It implements `AdsCore`'s provider-agnostic protocols, so your screens depend on
 on `AdManaging` while the SDK stays isolated here.
 
 [![Swift](https://img.shields.io/badge/Swift-5.9+-orange.svg)](https://swift.org)
-[![Platform](https://img.shields.io/badge/iOS-17%2B-blue.svg)](https://developer.apple.com/ios/)
+[![Platform](https://img.shields.io/badge/iOS-26%2B-blue.svg)](https://developer.apple.com/ios/)
 [![SPM](https://img.shields.io/badge/SPM-compatible-brightgreen.svg)](https://swift.org/package-manager/)
 
 ## Features
@@ -56,7 +56,7 @@ BannerAdView { GoogleBannerFactory.make(unitID: AdConfiguration.test.bannerID!) 
 
 ## Requirements
 
-- iOS 17.0+ · Swift 5.9+ · Google Mobile Ads SDK 13+
+- iOS 26.0+ · Swift 5.9+ · Google Mobile Ads SDK 13+
 
 ## License
 
