@@ -7,7 +7,7 @@ let package = Package(
         .iOS(.v16)
     ],
     products: [
-        .library(name: "AdsGoogle", targets: ["AdsGoogle"]),
+        .library(name: "AnvyxAdsGoogle", targets: ["AnvyxAdsGoogle"]),
     ],
     dependencies: [
         .package(url: "https://github.com/anvyxhq/AdsKit.git", from: "2.0.0"),
@@ -15,15 +15,12 @@ let package = Package(
     ],
     targets: [
         .target(
-            name: "AdsGoogle",
+            name: "AnvyxAdsGoogle",
             dependencies: [
-                .product(name: "AdsCore", package: "AdsKit"),
+                .product(name: "AnvyxAdsCore", package: "AdsKit"),
                 .product(name: "GoogleMobileAds", package: "swift-package-manager-google-mobile-ads"),
             ]
         ),
-        .testTarget(
-            name: "AdsGoogleTests",
-            dependencies: ["AdsGoogle"]
-        ),
+        .testTarget(name: "AnvyxAdsGoogleTests", dependencies: ["AnvyxAdsGoogle"]),
     ]
 )

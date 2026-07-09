@@ -5,7 +5,7 @@
 //  Created by AnhPT on 02/07/2026.
 //
 
-import AdsCore
+import AnvyxAdsCore
 import Combine
 import UIKit
 @preconcurrency import GoogleMobileAds

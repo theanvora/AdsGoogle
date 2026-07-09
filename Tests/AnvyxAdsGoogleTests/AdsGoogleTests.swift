@@ -6,8 +6,8 @@
 //
 
 import XCTest
-import AdsCore
-@testable import AdsGoogle
+import AnvyxAdsCore
+@testable import AnvyxAdsGoogle
 
 @MainActor
 final class AdsGoogleTests: XCTestCase {

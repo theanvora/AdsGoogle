@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import AdsCore
+import AnvyxAdsCore
 @preconcurrency import GoogleMobileAds
 
 /// Builds an AdMob banner `UIView` for use with `AdsCore.BannerAdView`.
