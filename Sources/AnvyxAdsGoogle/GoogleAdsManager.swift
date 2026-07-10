@@ -8,7 +8,7 @@
 import AnvyxAdsCore
 import Combine
 import UIKit
-@preconcurrency import GoogleMobileAds
+import GoogleMobileAds
 
 /// Google Mobile Ads (AdMob) implementation of `AdsCore`'s protocols. Screens
 /// keep depending only on `AdManaging` / `AppOpenAdManaging`; the SDK lives here.
@@ -30,9 +30,9 @@ public final class GoogleAdsManager: NSObject, AdManaging, AdEventPublishing, Ap
     private var rewarded: RewardedAd?
     private var appOpen: AppOpenAd?
 
-    private var currentFormat: AdsCore.AdFormat = .interstitial
-    private var pendingReward: AdsCore.AdReward?
-    private var rewardContinuation: CheckedContinuation<AdsCore.AdReward?, Never>?
+    private var currentFormat: AnvyxAdsCore.AdFormat = .interstitial
+    private var pendingReward: AnvyxAdsCore.AdReward?
+    private var rewardContinuation: CheckedContinuation<AnvyxAdsCore.AdReward?, Never>?
 
     public init(configuration: AdConfiguration, isEnabled: Bool = true) {
         self.configuration = configuration
@@ -86,7 +86,7 @@ public final class GoogleAdsManager: NSObject, AdManaging, AdEventPublishing, Ap
         }
     }
 
-    public func showRewarded() async -> AdsCore.AdReward? {
+    public func showRewarded() async -> AnvyxAdsCore.AdReward? {
         guard isEnabled, let ad = rewarded else { return nil }
         currentFormat = .rewarded
         pendingReward = nil
@@ -94,7 +94,7 @@ public final class GoogleAdsManager: NSObject, AdManaging, AdEventPublishing, Ap
             rewardContinuation = continuation
             ad.present(from: nil) { [weak self] in
                 let earned = ad.adReward
-                let reward = AdsCore.AdReward(amount: earned.amount.intValue, type: earned.type)
+                let reward = AnvyxAdsCore.AdReward(amount: earned.amount.intValue, type: earned.type)
                 self?.pendingReward = reward
                 self?.eventsSubject.send(.rewarded(reward))
             }

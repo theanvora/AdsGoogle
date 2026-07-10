@@ -7,9 +7,9 @@
 
 import UIKit
 import AnvyxAdsCore
-@preconcurrency import GoogleMobileAds
+import GoogleMobileAds
 
-/// Builds an AdMob banner `UIView` for use with `AdsCore.BannerAdView`.
+/// Builds an AdMob banner `UIView` for use with `AnvyxAdsCore.BannerAdView`.
 ///
 /// ```swift
 /// BannerAdView { GoogleBannerFactory.make(unitID: AdConfiguration.test.bannerID!) }

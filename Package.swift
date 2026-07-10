@@ -1,5 +1,12 @@
-// swift-tools-version: 5.9
+// swift-tools-version: 6.2
 import PackageDescription
+
+let concurrencyBaseline: [SwiftSetting] = [
+    .swiftLanguageMode(.v6),
+    .defaultIsolation(nil),
+    .enableUpcomingFeature("NonisolatedNonsendingByDefault"),
+    .enableUpcomingFeature("InferIsolatedConformances"),
+]
 
 let package = Package(
     name: "AdsGoogle",
@@ -10,7 +17,7 @@ let package = Package(
         .library(name: "AnvyxAdsGoogle", targets: ["AnvyxAdsGoogle"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/anvyxhq/AdsKit.git", from: "2.0.0"),
+        .package(url: "https://github.com/anvyxhq/AdsKit.git", from: "2.1.0"),
         .package(url: "https://github.com/googleads/swift-package-manager-google-mobile-ads.git", from: "13.0.0"),
     ],
     targets: [
@@ -19,8 +26,13 @@ let package = Package(
             dependencies: [
                 .product(name: "AnvyxAdsCore", package: "AdsKit"),
                 .product(name: "GoogleMobileAds", package: "swift-package-manager-google-mobile-ads"),
-            ]
+            ],
+            swiftSettings: concurrencyBaseline
         ),
-        .testTarget(name: "AnvyxAdsGoogleTests", dependencies: ["AnvyxAdsGoogle"]),
+        .testTarget(
+            name: "AnvyxAdsGoogleTests",
+            dependencies: ["AnvyxAdsGoogle"],
+            swiftSettings: concurrencyBaseline
+        ),
     ]
 )
